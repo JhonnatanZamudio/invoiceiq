@@ -1,0 +1,31 @@
+# Example Fly.io config. Before deploying:
+#   fly apps create <your-app-name>          # then set `app` below
+#   fly postgres create && fly postgres attach <pg-app>   # sets DATABASE_URL
+#   fly secrets set INVOICEIQ_SECRET_KEY=$(openssl rand -hex 32)
+app = "invoiceiq-demo"
+primary_region = "iad"   # pick the region closest to your users
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8000"
+  INVOICEIQ_LLM_PROVIDER = "fake"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    grace_period = "15s"
+    interval = "30s"
+    method = "GET"
+    path = "/healthz"
+    timeout = "5s"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

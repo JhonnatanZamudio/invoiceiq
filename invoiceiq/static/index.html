@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InvoiceIQ</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <!-- Login / signup -->
+  <main id="auth-view" class="auth" hidden>
+    <form id="auth-form" class="card auth-card" autocomplete="on">
+      <div class="brand"><span class="logo">IQ</span> InvoiceIQ</div>
+      <p class="muted">Convierte facturas PDF de proveedores en datos validados.</p>
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab active" data-mode="login">Iniciar sesión</button>
+        <button type="button" class="tab" data-mode="signup">Crear cuenta</button>
+      </div>
+      <label class="signup-only" hidden>Empresa
+        <input name="organization_name" placeholder="Mi Empresa S.A.S.">
+      </label>
+      <label>Correo <input name="email" type="email" required autocomplete="username"></label>
+      <label>Contraseña
+        <input name="password" type="password" required minlength="8" autocomplete="current-password">
+      </label>
+      <p id="auth-error" class="error" hidden></p>
+      <button class="btn primary" type="submit" id="auth-submit">Entrar</button>
+      <p class="hint">Demo local: <code>demo@invoiceiq.local</code> (ver README)</p>
+    </form>
+  </main>
+
+  <!-- App shell -->
+  <div id="app-view" hidden>
+    <header class="topbar">
+      <a href="#/" class="brand"><span class="logo">IQ</span> InvoiceIQ</a>
+      <div class="who"><span id="org-name"></span><span id="user-email" class="muted"></span>
+        <button class="btn ghost" id="logout">Cerrar sesión</button></div>
+    </header>
+
+    <section id="list-view" class="page" hidden>
+      <div class="page-head">
+        <h1>Facturas de proveedores</h1>
+        <div class="actions">
+          <button class="btn" data-export="csv">Exportar CSV</button>
+          <button class="btn primary" data-export="xlsx">Exportar Excel</button>
+        </div>
+      </div>
+      <label id="dropzone" class="dropzone">
+        <input type="file" id="file-input" accept="application/pdf" multiple hidden>
+        <strong>Arrastra tus facturas PDF aquí</strong>
+        <span class="muted">o haz clic para seleccionarlas · máx. 10 MB por archivo</span>
+        <span id="upload-status" class="upload-status"></span>
+      </label>
+      <div class="stats" id="stats"></div>
+      <div class="filters" id="filters">
+        <button class="chip-filter active" data-status="">Todas</button>
+        <button class="chip-filter" data-status="needs_review">Requieren revisión</button>
+        <button class="chip-filter" data-status="approved">Aprobadas</button>
+        <button class="chip-filter" data-status="processing">Procesando</button>
+      </div>
+      <div class="card table-wrap">
+        <table>
+          <thead><tr><th>Factura</th><th>Proveedor</th><th>NIT</th><th>Fecha</th>
+            <th class="num">Total</th><th>Estado</th></tr></thead>
+          <tbody id="invoice-rows"></tbody>
+        </table>
+        <p id="empty" class="empty" hidden>Aún no hay facturas. Sube tu primer PDF.</p>
+      </div>
+    </section>
+
+    <section id="review-view" class="page" hidden>
+      <a href="#/" class="back">← Volver a facturas</a>
+      <div class="page-head">
+        <div><h1 id="review-title"></h1><p id="review-sub" class="muted"></p></div>
+        <span id="review-status"></span>
+      </div>
+      <div class="review-grid">
+        <form id="fields-form" class="card">
+          <h2>Datos extraídos</h2>
+          <div id="fields"></div>
+          <div class="actions end">
+            <button type="submit" class="btn" id="save-btn">Guardar cambios</button>
+            <button type="button" class="btn primary" id="approve-btn">Aprobar factura</button>
+          </div>
+          <p id="review-msg" class="msg" hidden></p>
+        </form>
+        <aside class="side">
+          <div class="card"><h2>Alertas de validación</h2><ul id="issues" class="issues"></ul></div>
+          <div class="card meta" id="meta"></div>
+          <details class="card"><summary>Texto extraído del PDF</summary><pre id="raw-text"></pre></details>
+        </aside>
+      </div>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

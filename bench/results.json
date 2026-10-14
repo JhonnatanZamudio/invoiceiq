@@ -1,0 +1,211 @@
+{
+  "dataset": "synthetic sample invoices (scripts/make_invoices.py)",
+  "llm_fallback": "FakeProvider (offline; returns no values)",
+  "invoices": 13,
+  "field_accuracy": {
+    "invoice_number": 0.9231,
+    "issue_date": 0.9231,
+    "supplier_name": 0.9231,
+    "supplier_nit": 1.0,
+    "subtotal": 0.9231,
+    "iva": 1.0,
+    "total": 0.9231
+  },
+  "overall_field_accuracy": 0.9451,
+  "fully_extracted_by_rules": 12,
+  "fully_extracted_by_rules_pct": 92.3,
+  "review_flag_correct": 13,
+  "expected_flagged": 7,
+  "error_codes_exact_match": 13,
+  "avg_ms_per_invoice": 25.1,
+  "max_ms_per_invoice": 30.0,
+  "invoices_sent_to_llm_fallback": 1,
+  "fields_requested_from_llm": 4,
+  "fields_filled_by_llm": 0,
+  "run_at": "2026-10-14T15:32:44+00:00",
+  "python": "3.13.16",
+  "details": [
+    {
+      "file": "fe_andina_1023.pdf",
+      "template": "A",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": false,
+      "expected_flagged": false,
+      "error_codes": [],
+      "expected_codes": [],
+      "ms": 29.0
+    },
+    {
+      "file": "fe_andina_1031.pdf",
+      "template": "A",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": false,
+      "expected_flagged": false,
+      "error_codes": [],
+      "expected_codes": [],
+      "ms": 26.9
+    },
+    {
+      "file": "fe_caribe_220.pdf",
+      "template": "A",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": true,
+      "expected_flagged": true,
+      "error_codes": [
+        "nit_invalid"
+      ],
+      "expected_codes": [
+        "nit_invalid"
+      ],
+      "ms": 25.2
+    },
+    {
+      "file": "fe_montana_77.pdf",
+      "template": "A",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": true,
+      "expected_flagged": true,
+      "error_codes": [
+        "totals_mismatch"
+      ],
+      "expected_codes": [
+        "totals_mismatch"
+      ],
+      "ms": 29.7
+    },
+    {
+      "file": "fv_tecno_0458.pdf",
+      "template": "B",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": false,
+      "expected_flagged": false,
+      "error_codes": [],
+      "expected_codes": [],
+      "ms": 24.0
+    },
+    {
+      "file": "fv_tecno_0462.pdf",
+      "template": "B",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": false,
+      "expected_flagged": false,
+      "error_codes": [],
+      "expected_codes": [],
+      "ms": 22.1
+    },
+    {
+      "file": "fv_aseo_1190.pdf",
+      "template": "B",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": true,
+      "expected_flagged": true,
+      "error_codes": [
+        "nit_invalid"
+      ],
+      "expected_codes": [
+        "nit_invalid"
+      ],
+      "ms": 23.9
+    },
+    {
+      "file": "fv_tecno_0458_dup.pdf",
+      "template": "B",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": true,
+      "expected_flagged": true,
+      "error_codes": [
+        "duplicate"
+      ],
+      "expected_codes": [
+        "duplicate"
+      ],
+      "ms": 24.3
+    },
+    {
+      "file": "setp_4521.pdf",
+      "template": "C",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": false,
+      "expected_flagged": false,
+      "error_codes": [],
+      "expected_codes": [],
+      "ms": 25.7
+    },
+    {
+      "file": "setp_4533.pdf",
+      "template": "C",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": false,
+      "expected_flagged": false,
+      "error_codes": [],
+      "expected_codes": [],
+      "ms": 23.1
+    },
+    {
+      "file": "pan_88.pdf",
+      "template": "C",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": true,
+      "expected_flagged": true,
+      "error_codes": [
+        "totals_mismatch"
+      ],
+      "expected_codes": [
+        "totals_mismatch"
+      ],
+      "ms": 30.0
+    },
+    {
+      "file": "setp_4600.pdf",
+      "template": "C",
+      "wrong_fields": [],
+      "llm_requested": [],
+      "flagged": true,
+      "expected_flagged": true,
+      "error_codes": [
+        "date_future"
+      ],
+      "expected_codes": [
+        "date_future"
+      ],
+      "ms": 22.4
+    },
+    {
+      "file": "ds_creativos_981.pdf",
+      "template": "D",
+      "wrong_fields": [
+        "invoice_number",
+        "issue_date",
+        "supplier_name",
+        "subtotal",
+        "total"
+      ],
+      "llm_requested": [
+        "invoice_number",
+        "issue_date",
+        "subtotal",
+        "total"
+      ],
+      "flagged": true,
+      "expected_flagged": true,
+      "error_codes": [
+        "missing_field"
+      ],
+      "expected_codes": [
+        "missing_field"
+      ],
+      "ms": 20.1
+    }
+  ]
+}

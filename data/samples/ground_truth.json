@@ -1,0 +1,211 @@
+[
+  {
+    "file": "fe_andina_1023.pdf",
+    "template": "A",
+    "fields": {
+      "invoice_number": "FE-1023",
+      "issue_date": "2026-03-15",
+      "supplier_name": "Distribuidora Andina Demo S.A.S.",
+      "supplier_nit": "900123456-8",
+      "subtotal": "1475000.00",
+      "iva": "280250.00",
+      "total": "1755250.00"
+    },
+    "expected_needs_review": false,
+    "expected_reasons": []
+  },
+  {
+    "file": "fe_andina_1031.pdf",
+    "template": "A",
+    "fields": {
+      "invoice_number": "FE-1031",
+      "issue_date": "2026-04-02",
+      "supplier_name": "Distribuidora Andina Demo S.A.S.",
+      "supplier_nit": "900123456-8",
+      "subtotal": "1624800.00",
+      "iva": "308712.00",
+      "total": "1933512.00"
+    },
+    "expected_needs_review": false,
+    "expected_reasons": []
+  },
+  {
+    "file": "fe_caribe_220.pdf",
+    "template": "A",
+    "fields": {
+      "invoice_number": "LC-220",
+      "issue_date": "2026-02-27",
+      "supplier_name": "Logística Caribe Ficticia Ltda.",
+      "supplier_nit": "830456789-3",
+      "subtotal": "1850000.00",
+      "iva": "351500.00",
+      "total": "2201500.00"
+    },
+    "expected_needs_review": true,
+    "expected_reasons": [
+      "nit_invalid"
+    ]
+  },
+  {
+    "file": "fe_montana_77.pdf",
+    "template": "A",
+    "fields": {
+      "invoice_number": "CM-77",
+      "issue_date": "2026-05-09",
+      "supplier_name": "Café Montaña Ejemplo S.A.S.",
+      "supplier_nit": "901555222-9",
+      "subtotal": "1482000.00",
+      "iva": "281580.00",
+      "total": "1778580.00"
+    },
+    "expected_needs_review": true,
+    "expected_reasons": [
+      "totals_mismatch"
+    ]
+  },
+  {
+    "file": "fv_tecno_0458.pdf",
+    "template": "B",
+    "fields": {
+      "invoice_number": "FV-0458",
+      "issue_date": "2026-03-03",
+      "supplier_name": "Tecnología Pacífico Demo S.A.S.",
+      "supplier_nit": "800987654-4",
+      "subtotal": "2775000.00",
+      "iva": "527250.00",
+      "total": "3302250.00"
+    },
+    "expected_needs_review": false,
+    "expected_reasons": []
+  },
+  {
+    "file": "fv_tecno_0462.pdf",
+    "template": "B",
+    "fields": {
+      "invoice_number": "FV-0462",
+      "issue_date": "2026-03-20",
+      "supplier_name": "Tecnología Pacífico Demo S.A.S.",
+      "supplier_nit": "800987654-4",
+      "subtotal": "5780000.00",
+      "iva": "1098200.00",
+      "total": "6878200.00"
+    },
+    "expected_needs_review": false,
+    "expected_reasons": []
+  },
+  {
+    "file": "fv_aseo_1190.pdf",
+    "template": "B",
+    "fields": {
+      "invoice_number": "AT-1190",
+      "issue_date": "2026-01-18",
+      "supplier_name": "Aseo Total Ficticio S.A.S.",
+      "supplier_nit": "900765432-9",
+      "subtotal": "2762000.00",
+      "iva": "524780.00",
+      "total": "3286780.00"
+    },
+    "expected_needs_review": true,
+    "expected_reasons": [
+      "nit_invalid"
+    ]
+  },
+  {
+    "file": "fv_tecno_0458_dup.pdf",
+    "template": "B",
+    "fields": {
+      "invoice_number": "FV-0458",
+      "issue_date": "2026-03-03",
+      "supplier_name": "Tecnología Pacífico Demo S.A.S.",
+      "supplier_nit": "800987654-4",
+      "subtotal": "2775000.00",
+      "iva": "527250.00",
+      "total": "3302250.00"
+    },
+    "expected_needs_review": true,
+    "expected_reasons": [
+      "duplicate"
+    ]
+  },
+  {
+    "file": "setp_4521.pdf",
+    "template": "C",
+    "fields": {
+      "invoice_number": "SETP-4521",
+      "issue_date": "2026-04-02",
+      "supplier_name": "Ferretería El Tornillo Demo",
+      "supplier_nit": "79123456-0",
+      "subtotal": "458000.00",
+      "iva": "87020.00",
+      "total": "545020.00"
+    },
+    "expected_needs_review": false,
+    "expected_reasons": []
+  },
+  {
+    "file": "setp_4533.pdf",
+    "template": "C",
+    "fields": {
+      "invoice_number": "SETP-4533",
+      "issue_date": "2026-04-16",
+      "supplier_name": "Ferretería El Tornillo Demo",
+      "supplier_nit": "79123456-0",
+      "subtotal": "630000.00",
+      "iva": "31500.00",
+      "total": "661500.00"
+    },
+    "expected_needs_review": false,
+    "expected_reasons": []
+  },
+  {
+    "file": "pan_88.pdf",
+    "template": "C",
+    "fields": {
+      "invoice_number": "PE-88",
+      "issue_date": "2026-02-10",
+      "supplier_name": "Panadería La Espiga Ficticia",
+      "supplier_nit": "1020304050-8",
+      "subtotal": "495500.00",
+      "iva": "94145.00",
+      "total": "564645.00"
+    },
+    "expected_needs_review": true,
+    "expected_reasons": [
+      "totals_mismatch"
+    ]
+  },
+  {
+    "file": "setp_4600.pdf",
+    "template": "C",
+    "fields": {
+      "invoice_number": "SETP-4600",
+      "issue_date": "2031-01-15",
+      "supplier_name": "Ferretería El Tornillo Demo",
+      "supplier_nit": "79123456-0",
+      "subtotal": "389400.00",
+      "iva": "73986.00",
+      "total": "463386.00"
+    },
+    "expected_needs_review": true,
+    "expected_reasons": [
+      "date_future"
+    ]
+  },
+  {
+    "file": "ds_creativos_981.pdf",
+    "template": "D",
+    "fields": {
+      "invoice_number": "DS-981",
+      "issue_date": "2026-03-05",
+      "supplier_name": "Servicios Creativos Ejemplo",
+      "supplier_nit": "1098765432-9",
+      "subtotal": "2400000.00",
+      "iva": "456000.00",
+      "total": "2856000.00"
+    },
+    "expected_needs_review": true,
+    "expected_reasons": [
+      "missing_field"
+    ]
+  }
+]

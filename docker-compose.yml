@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: invoiceiq
+      POSTGRES_PASSWORD: invoiceiq
+      POSTGRES_DB: invoiceiq
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U invoiceiq"]
+      interval: 5s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://invoiceiq:invoiceiq@db:5432/invoiceiq
+      INVOICEIQ_SECRET_KEY: ${INVOICEIQ_SECRET_KEY:-local-compose-secret-change-me-0123456789}
+      INVOICEIQ_LLM_PROVIDER: ${INVOICEIQ_LLM_PROVIDER:-fake}
+      INVOICEIQ_LLM_API_KEY: ${INVOICEIQ_LLM_API_KEY:-}
+    ports:
+      - "8000:8000"
+    # Seed the local demo tenant on start (idempotent), then serve.
+    command: >
+      sh -c "python -m invoiceiq.seed &&
+             uvicorn invoiceiq.main:create_app --factory --host 0.0.0.0 --port 8000"
+
+volumes:
+  pgdata:
